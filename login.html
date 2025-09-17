@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - Belleza & Estilo</title>
+    <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+    <div class="login-header">
+        <a href="index.html" class="logo">💄 Belleza & Estilo</a>
+    </div>
+    
+    <div class="container">
+        <input type="checkbox" id="signup_toggle">
+        
+        <div class="form-container">
+            <!-- Formulario de Login -->
+            <div class="form-front">
+                <div class="form_details">Iniciar Sesión</div>
+                <div class="input-group">
+                    <input placeholder="Correo electrónico" class="input" type="email" required>
+                </div>
+                <div class="input-group">
+                    <input placeholder="Contraseña" class="input" type="password" required>
+                </div>
+                <div class="forgot-password">
+                    <a href="#">¿Olvidaste tu contraseña?</a>
+                </div>
+                <button class="btn">💄 Ingresar</button>
+                <div class="switch">
+                    ¿No tienes cuenta? 
+                    <label for="signup_toggle" class="signup_tog">
+                        Regístrate aquí
+                    </label>
+                </div>
+                <div class="social-login">
+                    <p>O inicia sesión con:</p>
+                    <div class="social-buttons">
+                        <button class="social-btn google">📧 Google</button>
+                        <button class="social-btn facebook">📘 Facebook</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Formulario de Registro -->
+            <div class="form-back">
+                <div class="form_details">Crear Cuenta</div>
+                <div class="input-group">
+                    <input placeholder="Nombre completo" class="input" type="text" required>
+                </div>
+                <div class="input-group">
+                    <input placeholder="Correo electrónico" class="input" type="email" required>
+                </div>
+                <div class="input-group">
+                    <input placeholder="Teléfono (opcional)" class="input" type="tel">
+                </div>
+                <div class="input-group">
+                    <input placeholder="Contraseña" class="input" type="password" required>
+                </div>
+                <div class="input-group">
+                    <input placeholder="Confirmar contraseña" class="input" type="password" required>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">Acepto los <a href="#">términos y condiciones</a></label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="newsletter">
+                    <label for="newsletter">Quiero recibir ofertas y novedades por email</label>
+                </div>
+                <button class="btn">✨ Crear mi cuenta</button>
+                <div class="switch">
+                    ¿Ya tienes cuenta? 
+                    <label for="signup_toggle" class="signup_tog">
+                        Inicia Sesión
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="back-container">
+        <a href="index.html" class="back-home">← Volver a la tienda</a>
+    </div>

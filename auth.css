@@ -1,0 +1,586 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 30%, #e1bee7 70%, #f3e5f5 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="makeup" x="0" y="0" width="150" height="150" patternUnits="userSpaceOnUse"><text x="75" y="75" font-size="40" text-anchor="middle" fill="rgba(141,110,99,0.08)">💄</text></pattern></defs><rect width="1000" height="1000" fill="url(%23makeup)"/></svg>');
+    z-index: -1;
+    animation: backgroundFloat 20s ease-in-out infinite;
+}
+
+@keyframes backgroundFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Header */
+.login-header {
+    background: linear-gradient(135deg, #8d6e63 0%, #a1887f 50%, #bcaaa4 100%);
+    padding: 1.5rem 5%;
+    box-shadow: 0 4px 20px rgba(141, 110, 99, 0.3);
+    position: relative;
+    z-index: 100;
+}
+
+.logo {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+    color: #f8bbd9;
+    text-shadow: 2px 2px 8px rgba(248, 187, 217, 0.5);
+}
+
+/* Main Container */
+.container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    perspective: 1000px;
+    position: relative;
+}
+
+#signup_toggle {
+    display: none;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#signup_toggle:checked ~ .form-container {
+    transform: rotateY(180deg);
+}
+
+.form-front,
+.form-back {
+    position: absolute;
+    width: 100%;
+    backface-visibility: hidden;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 25px;
+    padding: 3rem 2.5rem;
+    box-shadow: 0 20px 60px rgba(141, 110, 99, 0.2);
+    border: 2px solid rgba(248, 187, 217, 0.3);
+    backdrop-filter: blur(20px);
+    min-height: 500px;
+}
+
+.form-back {
+    transform: rotateY(180deg);
+    min-height: 650px;
+}
+
+.form_details {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #5d4037;
+    text-align: center;
+    margin-bottom: 2rem;
+    background: linear-gradient(135deg, #5d4037, #8d6e63);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+    position: relative;
+}
+
+.form_details::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #f8bbd9, #e1bee7);
+    border-radius: 2px;
+}
+
+/* Input Styles */
+.input-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.input-group.focused {
+    transform: translateY(-2px);
+}
+
+.input {
+    width: 100%;
+    padding: 1.2rem 1.5rem;
+    border: 2px solid rgba(141, 110, 99, 0.2);
+    border-radius: 15px;
+    font-size: 1rem;
+    color: #5d4037;
+    background: rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+    font-family: inherit;
+    position: relative;
+}
+
+.input:focus {
+    outline: none;
+    border-color: #f8bbd9;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 0 20px rgba(248, 187, 217, 0.3);
+    transform: translateY(-2px);
+}
+
+.input::placeholder {
+    color: #a1887f;
+    font-style: italic;
+    transition: all 0.3s ease;
+}
+
+.input:focus::placeholder {
+    opacity: 0.7;
+    transform: translateY(-2px);
+}
+
+/* Forgot Password */
+.forgot-password {
+    text-align: right;
+    margin-bottom: 1rem;
+}
+
+.forgot-password a {
+    color: #8d6e63;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.forgot-password a:hover {
+    color: #f8bbd9;
+    text-decoration: underline;
+}
+
+/* Checkbox Group */
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    gap: 0.8rem;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #f8bbd9;
+    cursor: pointer;
+    margin-top: 2px;
+}
+
+.checkbox-group label {
+    color: #6d4c41;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    cursor: pointer;
+    flex: 1;
+}
+
+.checkbox-group label a {
+    color: #8d6e63;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.checkbox-group label a:hover {
+    color: #f8bbd9;
+    text-decoration: underline;
+}
+
+/* Button Styles */
+.btn {
+    width: 100%;
+    padding: 1.3rem;
+    background: linear-gradient(135deg, #8d6e63 0%, #a1887f 50%, #bcaaa4 100%);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 0 6px 20px rgba(141, 110, 99, 0.3);
+    font-family: inherit;
+    position: relative;
+    overflow: hidden;
+    margin: 2rem 0 1.5rem 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn:hover {
+    background: linear-gradient(135deg, #6d4c41 0%, #8d6e63 50%, #a1887f 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(109, 76, 65, 0.4);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+}
+
+/* Switch Toggle */
+.switch {
+    text-align: center;
+    color: #6d4c41;
+    font-size: 0.95rem;
+    margin-top: 1.5rem;
+}
+
+.signup_tog {
+    color: #8d6e63;
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: underline;
+    transition: all 0.3s ease;
+    margin-left: 0.5rem;
+}
+
+.signup_tog:hover {
+    color: #f8bbd9;
+    text-shadow: 0 2px 4px rgba(248, 187, 217, 0.3);
+}
+
+/* Social Login */
+.social-login {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(141, 110, 99, 0.2);
+}
+
+.social-login p {
+    text-align: center;
+    color: #6d4c41;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.social-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-btn {
+    flex: 1;
+    padding: 0.8rem 1rem;
+    border: 2px solid rgba(141, 110, 99, 0.2);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #5d4037;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.social-btn.google:hover {
+    border-color: #db4437;
+    background: #db4437;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.social-btn.facebook:hover {
+    border-color: #4267b2;
+    background: #4267b2;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Messages */
+.message {
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
+    border: 1px solid;
+}
+
+.message.success {
+    background: linear-gradient(135deg, #c8e6c9, #a5d6a7);
+    color: #2e7d32;
+    border-color: #4caf50;
+}
+
+.message.error {
+    background: linear-gradient(135deg, #ffcdd2, #ef9a9a);
+    color: #c62828;
+    border-color: #f44336;
+}
+
+.message.info {
+    background: linear-gradient(135deg, #e1f5fe, #b3e5fc);
+    color: #0277bd;
+    border-color: #03a9f4;
+}
+
+/* Back Container */
+.back-container {
+    padding: 2rem 5% 1rem;
+    text-align: center;
+}
+
+.back-home {
+    color: #8d6e63;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 4px 15px rgba(141, 110, 99, 0.2);
+    border: 2px solid transparent;
+    display: inline-block;
+}
+
+.back-home:hover {
+    color: #5d4037;
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(141, 110, 99, 0.3);
+    border-color: #f8bbd9;
+}
+
+/* Floating Animations */
+.form-container::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #f8bbd9, #e1bee7);
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: float1 6s ease-in-out infinite;
+    z-index: -1;
+}
+
+.form-container::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    right: -30px;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #e1bee7, #f3e5f5);
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: float2 8s ease-in-out infinite;
+    z-index: -1;
+}
+
+@keyframes float1 {
+    0%, 100% { 
+        transform: translateY(0px) rotate(0deg); 
+        opacity: 0.6;
+    }
+    50% { 
+        transform: translateY(-15px) rotate(180deg); 
+        opacity: 0.8;
+    }
+}
+
+@keyframes float2 {
+    0%, 100% { 
+        transform: translateY(0px) rotate(0deg); 
+        opacity: 0.5;
+    }
+    50% { 
+        transform: translateY(20px) rotate(-180deg); 
+        opacity: 0.7;
+    }
+}
+
+/* Additional floating elements */
+.container::before {
+    content: '✨';
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    font-size: 2rem;
+    opacity: 0.3;
+    animation: sparkle1 4s ease-in-out infinite;
+}
+
+.container::after {
+    content: '💕';
+    position: absolute;
+    bottom: 20%;
+    right: 15%;
+    font-size: 1.5rem;
+    opacity: 0.4;
+    animation: sparkle2 5s ease-in-out infinite;
+}
+
+@keyframes sparkle1 {
+    0%, 100% { 
+        transform: scale(1) rotate(0deg);
+        opacity: 0.3;
+    }
+    50% { 
+        transform: scale(1.2) rotate(180deg);
+        opacity: 0.6;
+    }
+}
+
+@keyframes sparkle2 {
+    0%, 100% { 
+        transform: scale(1) rotate(0deg);
+        opacity: 0.4;
+    }
+    50% { 
+        transform: scale(1.3) rotate(-90deg);
+        opacity: 0.7;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .login-header {
+        padding: 1rem 3%;
+    }
+    
+    .logo {
+        font-size: 1.6rem;
+    }
+    
+    .container {
+        padding: 1rem;
+    }
+    
+    .form-front,
+    .form-back {
+        padding: 2rem 1.5rem;
+        margin: 0 0.5rem;
+    }
+    
+    .form_details {
+        font-size: 1.8rem;
+    }
+    
+    .social-buttons {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .back-container {
+        padding: 1.5rem 3% 0.5rem;
+    }
+    
+    .container::before,
+    .container::after {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-front,
+    .form-back {
+        padding: 1.5rem 1rem;
+    }
+    
+    .form_details {
+        font-size: 1.5rem;
+    }
+    
+    .input {
+        padding: 1rem 1.2rem;
+    }
+    
+    .btn {
+        padding: 1.1rem;
+        font-size: 1rem;
+    }
+    
+    .checkbox-group {
+        align-items: flex-start;
+    }
+    
+    .checkbox-group label {
+        font-size: 0.85rem;
+    }
+}
+
+/* Loading Animation */
+.btn.loading {
+    pointer-events: none;
+    position: relative;
+    color: transparent;
+}
+
+.btn.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent;
+    border-top: 2px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}

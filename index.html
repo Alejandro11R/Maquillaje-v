@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belleza & Estilo - Tu tienda de belleza favorita</title>
+    <!-- Conectar el archivo CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#inicio" class="logo">💄 Belleza & Estilo</a>
+            
+            <!-- Botón hamburguesa para móviles -->
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#maquillaje">Maquillaje</a></li>
+                <li><a href="#cabello">Cabello</a></li>
+                <li><a href="#jabones">Jabones</a></li>
+                <li><a href="#nosotros">Sobre Nosotros</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <a href="#" class="cart-icon" onclick="openCart()">
+                🛒 Carrito
+                <span class="cart-count" id="cartCount">0</span>
+            </a>
+            <a href="login.html" class="login-btn">🔑 Iniciar Sesión</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-content center" id="presentacion">
+            <h1 class="center">Belleza & Estilo</h1>
+            <p>Descubre tu belleza natural con nuestros productos de maquillaje premium, 
+            cuidado capilar y jabones artesanales. Cada producto está seleccionado 
+            especialmente para realzar tu belleza única y hacerte sentir radiante 
+            todos los días.</p>
+            <a href="#maquillaje" class="cta-button center">Ver Productos</a>
+            <a href="#nosotros" class="cta-button center">Conoce nuestra historia</a>
+            
+            <div class="social-links">
+                <a href="https://wa.me/573001234567" target="_blank" title="WhatsApp">🟢</a>
+                <a href="https://instagram.com" target="_blank" title="Instagram">📸</a>
+                <a href="https://facebook.com" target="_blank" title="Facebook">📘</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Maquillaje Section -->
+    <section class="products" id="maquillaje">
+        <h2 class="section-title">💄 Productos de Maquillaje</h2>
+        
+        <!-- Feature badges -->
+        <div class="feature-badges">
+            <div class="badge">🚚 Envío GRATIS</div>
+            <div class="badge">✨ Calidad Premium</div>
+            <div class="badge">💯 Productos Originales</div>
+        </div>
+
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-tag">MÁS VENDIDO</div>
+                <div class="product-image">💋</div>
+                <div class="product-content">
+                    <h3 class="product-title">Labial Mate Premium</h3>
+                    <p class="product-description">Labial de larga duración con textura aterciopelada</p>
+                    <span class="product-highlight">🌟 El más popular</span>
+                    <div class="product-rating">
+                        <span class="stars">★★★★★</span>
+                        <span>(245 valoraciones)</span>
+                    </div>
+                    <div class="product-price">$35,000</div>
+                    <button class="add-to-cart" onclick="addToCart('Labial Mate Premium', 35000, this)">
+                        🛒 Añadir al carrito
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-tag">NUEVO</div>
+                <div class="product-image">🎨</div>
+                <div class="product-content">
+                    <h3 class="product-title">Paleta de Sombras</h3>
+                    <p class="product-description">18 tonos pigmentados para crear looks únicos</p>
+                    <span class="product-highlight">✨ Recién llegado</span>
+                    <div class="product-rating">
+                        <span class="stars">★★★★☆</span>
+                        <span>(87 valoraciones)</span>
+                    </div>
+                    <div class="product-price">$85,000</div>
+                    <button class="add-to-cart" onclick="addToCart('Paleta de Sombras 18 tonos', 85000, this)">
+                        🛒 Añadir al carrito
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-tag">OFERTA</div>
+                <div class="product-image">✨</div>
+                <div class="product-content">
+                    <h3 class="product-title">Base Líquida HD</h3>
+                    <p class="product-description">Cobertura completa con acabado natural</p>
+                    <span class="product-highlight">💰 ¡Precio especial!</span>
+                    <div class="product-rating">
+                        <span class="stars">★★★★★</span>
+                        <span>(156 valoraciones)</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="price-original">$65,000</span>
+                        $52,000
+                        <span class="price-discount">20% OFF</span>
+                    </div>
+                    <button class="add-to-cart" onclick="addToCart('Base Líquida HD', 52000, this)">
+                        🛒 Añadir al carrito
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-tag">PREMIUM</div>
+                <div class="product-image">🌟</div>
+                <div class="product-content">
+                    <h3 class="product-title">Kit Completo de Cejas</h3>
+                    <p class="product-description">Todo lo necesario para cejas perfectas</p>
+                    <span class="product-highlight">🔥 Kit profesional</span>
+                    <div class="product-rating">
+                        <span class="stars">★★★★★</span>
+                        <span>(203 valoraciones)</span>
+                    </div>
+                    <div class="product-price">$75,000</div>
+                    <button class="add-to-cart" onclick="addToCart('Kit Completo de Cejas', 75000, this)">
+                        🛒 Añadir al carrito
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cabello Section -->
+    <section class="products" id="cabello">
+        <h2 class="section-title">💇‍♀️ Productos para Cabello</h2>
+        
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-tag">BESTSELLER</div>
+                <div class="product-image">🧴</div>
+                <div class="product-content">
+                    <h3 class="product-title">Shampoo Hidratante</h3>
+                    <p class="product-description">Limpieza profunda con ingredientes naturales</p>
+                    <span class="product-highlight">🌿 Con aceites naturales</span>
+                    <div class="product-rating">
+                        <span class="stars">★★★★★</span>
+                        <span>(189 valoraciones)</span>
+                    </div>
+                    <div class="product-price">$28,000</div>
+                    <button class="add-to-cart" onclick="addToCart('Shampoo Hidratante 400ml', 28000, this)">
+                        🛒 Añadir al carrito
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-tag">TRATAMIENTO</div>
+                <div class="product-image">💆‍♀️</div>
+                <div class="product-content">
+                    <h3 class="product-title">Mascarilla Reparadora</h3>
+                    <p class="product-description">Tratamiento intensivo para cabello dañado</p>
+                    <span class="product-highlight">🔧 Reparación profunda</span>
+                    <div class="product-rating">
+                        <span class="stars">★★★★☆</span>
+                        <span>(134 valoraciones)</span>
+                    </div>
+                    <div class="product-price">$45,000</div>
+                    <button class="add-to-cart" onclick="addToCart('Mascarilla Reparadora', 45000, this)">
+                        🛒 Añadir al carrito
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-tag">NATURAL</div>
+                <div class="product-image">🌱</div>
+                <div class="product-content">
+                    <h3 class="product-title">Aceite Capilar Orgánico</h3>
+                    <p class="product-description">Mezcla de aceites para nutrición y brillo</p>
+                    <span class="product-highlight">🌿 100% natural</span>
+                    <div class="product-rating">
+                        <span class="stars">★★★★★</span>
+                        <span>(167 valoraciones)</span>
+                    </div>
+                    <div class="product-price">$38,000</div>
+                    <button class="add-to-cart" onclick="addToCart('Aceite Capilar Orgánico 50ml', 38000, this)">
+                        🛒 Añadir al carrito
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-tag">OFERTA</div>
+                <div class="product-image">💨</div>
+                <div class="product-content">
+                    <h3 class="product-title">Spray Termoprotector</h3>
+                    <p class="product-description">Protección contra el calor del peinado</p>
+                    <span class="product-highlight">🛡️ Máxima protección</span>
+                    <div class="product-rating">
+                        <span class="stars">★★★★☆</span>
+                        <span>(98 valoraciones)</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="price-original">$32,000</span>
+                        $25,000
+                        <span class="price-discount">22% OFF</span>
+                    </div>
+                    <button class="add-to-cart" onclick="addToCart('Spray Termoprotector', 25000, this)">
+                        🛒 Añadir al carrito
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Jabones Section -->
+    <section class="products" id="jabones">
+        <h2 class="section-title">🧼 Jabones Personales</h2>
+        
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-tag">ARTESANAL</div>
+                <div class="product-image">🌸</div>
+                <div class="product-content">
+                    <h3 class="product-title">Jabón de Rosas</h3>
+                    <p class="product-description">Jabón artesanal con pétalos de rosa natural</p>
+                    <span class="product-highlight">🌹 Hecho a mano</span>
+                    <div class="product-rating">
+                        <span class="stars">★★★★★</span>
+                        <span>(145 valoraciones)</span>
+                    </div>
+                    <div class="product-price">$18,000</div>
+                    <button class="add-to-cart" onclick="addToCart('Jabón Artesanal de Rosas', 18000, this)">
+                        🛒 Añadir al carrito
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-tag">HIDRATANTE</div>
+                <div class="product-image">🥥</div>
+                <div class="product-content">
+                    <h3 class="product-title">Jabón de Coco</h3>
+                    <p class="product-description">Con aceite de coco para piel suave</p>
+                    <span class="product-highlight">💧 Extra hidratante</span>
+                    <div class="product-rating">
+                        <span class="stars">★★★★☆</span>
+                        <span>(112 valoraciones)</span>
+                    </div>
+                    <div class="product-price">$15,000</div>
+                    <button class="add-to-cart" onclick="addToCart('Jabón de Coco Hidratante', 15000, this)">
+                        🛒 Añadir al carrito
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-tag">EXFOLIANTE</div>
+                <div class="product-image">🍯</div>
+                <div class="product-content">
+                    <h3 class="product-title">Jabón de Miel y Avena</h3>
+                    <p class="product-description">Exfoliación suave con avena natural</p>
+                    <span class="product-highlight">✨ Piel radiante</span>
+                    <div class="product-rating">
+                        <span class="stars">★★★★★</span>
+                        <span>(178 valoraciones)</span>
+                    </div>
+                    <div class="product-price">$22,000</div>
+                    <button class="add-to-cart" onclick="addToCart('Jabón Exfoliante Miel y Avena', 22000, this)">
+                        🛒 Añadir al carrito
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-tag">PACK</div>
+                <div class="product-image">🎁</div>
+                <div class="product-content">
+                    <h3 class="product-title">Set de 3 Jabones</h3>
+                    <p class="product-description">Rosa, Coco y Miel - Variedad perfecta</p>
+                    <span class="product-highlight">💝 Ahorra comprando el set</span>
+                    <div class="product-rating">
+                        <span class="stars">★★★★★</span>
+                        <span>(89 valoraciones)</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="price-original">$55,000</span>
+                        $45,000
+                        <span class="price-discount">18% OFF</span>
+                    </div>
+                    <button class="add-to-cart" onclick="addToCart('Set de 3 Jabones Artesanales', 45000, this)">
+                        🛒 Añadir al carrito
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="toast" id="toast">
+        <span>✅ Producto añadido al carrito</span>
+    </div>
+
+    <section class="sobre-nosotros" id="nosotros">
+        <h2 class="section-title center">Sobre Nosotros</h2>
+        <div class="nosotros-contenido">
+            <p>
+                <strong>Nuestra Pasión:</strong> En Belleza & Estilo creemos que cada persona 
+                merece sentirse hermosa y segura de sí misma. Por eso seleccionamos 
+                cuidadosamente cada producto para ofrecerte lo mejor en maquillaje, 
+                cuidado capilar y productos de higiene personal.
+            </p>
+            <p>
+                <strong>Calidad Garantizada:</strong> Trabajamos solo con marcas reconocidas 
+                y productos de alta calidad que han sido probados y recomendados por 
+                expertos en belleza. Tu satisfacción es nuestra prioridad.
+            </p>
+            <p>
+                <strong>Experiencia Personalizada:</strong> Entendemos que cada persona es única, 
+                por eso ofrecemos asesoría personalizada para ayudarte a encontrar 
+                los productos perfectos para tu tipo de piel, cabello y estilo personal.
+            </p>
+            <p>
+                <strong>Compromiso Contigo:</strong> No solo vendemos productos, creamos 
+                una experiencia de belleza completa. Desde el momento que nos contactas 
+                hasta que recibes tu pedido, te acompañamos en tu camino hacia la belleza natural.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contacto">
+        <h2 class="section-title center">¡Contáctanos!</h2>
+        <p>¿Necesitas asesoría? ¿Quieres hacer un pedido especial?</p>
+        <br>
+        <div class="contact-buttons">
+            <a href="https://wa.me/573001234567?text=Hola,%20me%20interesa%20productos%20de%20belleza" 
+            class="whatsapp-button" target="_blank">
+                📱 Contactar por WhatsApp
+            </a>
+            <a href="tel:+573001234567" class="call-button">
+                📞 Llamar Ahora
+            </a>
+        </div>
+        
+        <div class="contact-info">
+            <h3>📍 Información de Envío</h3>
+            <p>🚚 <strong>Envío GRATIS</strong> a toda Colombia</p>
+            <p>⏰ <strong>Tiempo de entrega:</strong> 2-3 días hábiles</p>
+            <p>📦 <strong>Empaque:</strong> Seguro y discreto</p>
+            <p>💳 <strong>Pago:</strong> Contraentrega o transferencia</p>
+            <p>💄 <strong>Asesoría:</strong> Gratuita por WhatsApp</p>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/573001234567?text=Hola,%20tengo%20una%20pregunta%20sobre%20productos%20de%20belleza" 
+    class="floating-whatsapp" target="_blank" title="¡Chatea con nosotros!">
+        💬
+    </a>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <span class="close-cart" onclick="closeCart()">&times;</span>
+            <h2>Carrito de Compras</h2>
+            <div id="cartItems"></div>
+            <div class="cart-total">Total: $<span id="cartTotal">0</span></div>
+            <button class="checkout-button" id="checkoutBtn">
+                Finalizar Compra por WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
